@@ -1,2 +1,24 @@
-My name is Abby Swenor and I am completing this lab for my CS 3300 class for homework #4.
-Here are more edits that I am making to the file.
+# README
+
+This README would normally document whatever steps are necessary to get the
+application up and running.
+
+Things you may want to cover:
+
+* Ruby version
+
+* System dependencies
+
+* Configuration
+
+* Database creation
+
+* Database initialization
+
+* How to run the test suite
+
+* Services (job queues, cache servers, search engines, etc.)
+
+* Deployment instructions
+
+* ...
