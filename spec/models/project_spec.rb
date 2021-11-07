@@ -1,5 +1,6 @@
 require "rails_helper"
 
+# Test that validates that a title/description is present
 RSpec.describe Project, type: :model do
     context "validations tests" do
         it "ensures the title is present" do
@@ -7,12 +8,14 @@ RSpec.describe Project, type: :model do
             expect(project.valid?).to eq(false)
         end
 
+        # test Project save is successful
         it "should be able to save project" do
             project = Project.new(title: "Title", description: "Some description content goes here")
             expect(project.save).to eq(true)
         end
     end
 
+    # Test that all projects that are created are returned
     context "scopes tests" do
         let(:params) { { title: "Title", description: "some description" } }
         before(:each) do
