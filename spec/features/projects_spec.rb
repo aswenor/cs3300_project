@@ -1,5 +1,8 @@
 require 'rails_helper'
 
+user = FactoryBot.create(:user)
+login_user(user)
+
 # Behavior test that creates a new project and fills in the title 
 RSpec.feature "Projects", type: :feature do
   context "Create new project" do
