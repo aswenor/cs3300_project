@@ -10,28 +10,28 @@ RSpec.feature "Visiting the homepage", type: :feature do
   # Test that the user can view links
   scenario "The visitor should see edit profile" do
     visit root_path
-    if user_signed_in
+    if user_session_url
       expect(page).to have_link("Edit proflie")
     end
   end
 
   scenario "The visitor should see logout" do
     visit root_path
-    if user_signed_in
+    if user_session_url
       expect(page).to have_link("Logout")
     end
   end
 
   scenario "The visitor should see signup" do
     visit root_path
-    if not(user_signed_in)
+    if not(user_session_url)
       expect(page).to have_link("Sign up") 
     end
   end
 
   scenario "The visitor should see login" do
     visit root_path
-    if not(user_signed_in)
+    if not(user_session_url)
       expect(page).to have_link("Login")
     end
   end
