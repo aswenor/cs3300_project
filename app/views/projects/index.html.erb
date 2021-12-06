@@ -1,24 +1,39 @@
+
 <p id="notice"><%= notice %></p>
 
-<h1>Projects</h1>
+<div class="mx-auto" style="width: 900px;">
+<div class="card" style="width: 900px;">
+  <div class="card-body">
+    <h5 class="card-title">Abigail Swenor</h5>
+    <h6 class="card-subtitle mb-2 text-muted">aswenor@uccs.edu</h6>
+    <p class="card-text">Abigail is a senior Computer Science student at The University of Colorado - Colorado Springs. She wishes to get a good final grade for Iteration 6 for her CS3300 course. This portfolio is an example of the work she has completed as part of this course. </p>
+  </div>
+</div>
+</div>
+
+<div class="mx-auto" style="width: 150px;">
+  <h1 >Projects</h1>
+</div>
 
 <table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Description</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+
 
   <tbody>
     <% @projects.each do |project| %>
       <tr>
-        <td><%= project.title %></td>
-        <td><%= project.description %></td>
-        <td><%= link_to 'Show', project %></td>
-        <td><%= link_to 'Edit', edit_project_path(project) %></td>
-        <td><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <div class="mx-auto" style="width: 300px;">
+        <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title"><%= project.title %> </h5>
+          <p class="card-text"><%= project.description %></p>
+          <a href="#" class="card-link"><%= link_to 'Show', project, :class => 'btn btn-primary' %></a>
+          <% if user_signed_in? %>
+            <a href="#" class="card-link"><%= link_to 'Edit', edit_project_path(project), :class => 'btn btn-primary' %></a>
+            <a href="#" class="card-link"><%= link_to 'Destroy', project, :class => 'btn btn-primary', method: :delete, data: { confirm: 'Are you sure?' } %></a>
+          <% end %>
+        </div>
+      </div>
+      </div>
       </tr>
     <% end %>
   </tbody>
@@ -26,4 +41,6 @@
 
 <br>
 
-<%= link_to 'New Project', new_project_path %>
+<div class="mx-auto" style="width: 100px;">
+<%= link_to 'New Project', new_project_path, :class => 'btn btn-secondary' %>
+</div>

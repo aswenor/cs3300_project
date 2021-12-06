@@ -1,14 +1,11 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @project.title %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @project.description %>
-</p>
-
-<%= link_to 'Edit', edit_project_path(@project) %> |
-<%= link_to 'Back', projects_path %>
+<div class="card">
+<div class="mx-auto" style="width: 200px;">
+  <div class="card-body">
+    <h5 class="card-title"><%= @project.title %></h5>
+    <p class="card-text"><%= @project.description %></p>
+    <%= link_to 'Edit', edit_project_path(@project), :class => 'btn btn-secondary' %>
+    <%= link_to 'Back', projects_path, :class => 'btn btn-primary' %>
+  </div>
+</div>
+</div>

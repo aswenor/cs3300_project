@@ -9,6 +9,25 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">CS3300 Porfolio</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-link active" href="#"><%= link_to 'Home', root_path, :class => 'btn btn-outline-primary' %></a>
+      <% if user_signed_in? %>
+        <a class="nav-link" href="#"><%= link_to 'Edit profile', edit_user_registration_path, :class => 'btn btn-outline-primary' %></a>
+        <a class="nav-link" href="#"><%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'btn btn-outline-primary'  %></a>
+      <% else %>
+        <a class="nav-link" href="#"><%= link_to "Sign up", new_user_registration_path, :class => 'btn btn-outline-primary'  %></a> 
+        <a class="nav-link" href="#"><%= link_to "Login", new_user_session_path, :class => 'btn btn-outline-primary'  %></a> 
+      <% end %>
+    </div>
+  </div>
+</nav>
+
   <body>
     <%= yield %>
   </body>
@@ -17,10 +36,5 @@
 <p class="navbar-text float-right">
 <% if user_signed_in? %>
   Logged in as <strong><%= current_user.email %></strong>.
-  <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
-  <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
-<% else %>
-  <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
-  <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
 <% end %>
 </p>
